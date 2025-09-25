@@ -1,0 +1,184 @@
+import 'package:flutter/material.dart';
+
+class AttendenceView extends StatelessWidget {
+  const AttendenceView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+    extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image(
+              image: AssetImage('assets/images/LogoRobotic.png'),
+              height: 60,
+              width: 60,
+            ),
+            Text(
+                'Attendence',
+                style: TextStyle(
+                    color: Color(0xFF3671AA),
+                    fontSize: 33,
+                    fontFamily: 'NeoLatina',
+                    fontWeight: FontWeight.bold
+                )
+            ),
+            Icon(
+              Icons.person,
+              size: 30,
+              color: Color(0XFF4382bb),
+            ),
+          ],
+        ),
+      ),
+      body:Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage('assets/images/Background.jpg'),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.5), BlendMode.srcOver)
+        ),
+        ),
+        child: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+        padding: EdgeInsets.all(8),
+        child:
+         ClipRRect(
+           borderRadius: BorderRadius.circular(30),
+            child: Image(
+            image: AssetImage('assets/images/att.jpg'),
+          ),
+        ),
+      ),
+            Text(
+                'Attendence Summary',
+              style: TextStyle(
+                  color: Color(0xFF3671AA),
+                  fontSize: 27,
+                  fontFamily: 'NeoLatina',
+                  fontWeight: FontWeight.bold,
+                  height: 2,
+              ),
+            ),
+            Text('Total hours this month: 160\n Last check-in: 9:00 AM, Last Check-out: 5:00 PM',
+           style: TextStyle(
+             color: Colors.grey[400],
+             fontSize: 20,
+             height: 1.5,
+           ),
+            ),
+           Padding(padding: EdgeInsets.only(top: 60),
+           child:Text(
+             'History',
+             style: TextStyle(
+               color: Color(0xFF3671AA),
+               fontSize: 30,
+               fontFamily: 'NeoLatina',
+               fontWeight: FontWeight.bold,
+
+             ),
+           ),
+           ),
+            Card(
+              color: Colors.transparent,
+              elevation: 0,
+              margin: EdgeInsets.symmetric(vertical: 2, horizontal: 3),
+              child: ListTile(
+              leading:   Container(
+                        padding: EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Icon(
+                        Icons.date_range,
+                        size: 40,
+                        color: Color(0XFF4382bb),
+                      ),
+                      ),
+                title: Text(
+                          'July 26 ,2024',
+                        style: TextStyle(
+                            fontSize: 20,
+                        color: Color(0xFF3671AA),
+                        ),
+                      ),
+                subtitle: Text(
+                  "Checked in: 9:00 AM",
+                  style: TextStyle(color: Colors.grey[500]),
+                ),
+              ),
+            ),
+            Card(
+              color: Colors.transparent,
+              elevation: 0,
+              margin: EdgeInsets.symmetric(vertical: 2, horizontal: 3),
+              child: ListTile(
+                leading:   Container(
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Icon(
+                    Icons.date_range,
+                    size: 40,
+                    color: Color(0XFF4382bb),
+                  ),
+                ),
+                title: Text(
+                  'July 25 ,2024',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFF3671AA),
+                  ),
+                ),
+                subtitle: Text(
+                  "Checked in: 9:00 AM",
+                  style: TextStyle(color: Colors.grey[500]),
+                ),
+              ),
+            ),
+            Card(
+              color: Colors.transparent,
+              elevation: 0,
+              margin: EdgeInsets.symmetric(vertical: 2, horizontal: 3),
+              child: ListTile(
+                leading:   Container(
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Icon(
+                    Icons.date_range,
+                    size: 40,
+                    color: Color(0XFF4382bb),
+                  ),
+                ),
+                title: Text(
+                  'July 24 ,2024',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFF3671AA),
+                  ),
+                ),
+                subtitle: Text(
+                  "Checked in: 9:00 AM",
+                  style: TextStyle(color: Colors.grey[500]),
+                ),
+              ),
+            ),
+          ],
+        ),
+        ),
+      ),
+    );
+  }
+}

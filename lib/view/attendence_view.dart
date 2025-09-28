@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AttendenceView extends StatelessWidget {
   const AttendenceView({super.key});
@@ -32,7 +33,148 @@ class AttendenceView extends StatelessWidget {
               size: 30,
               color: Color(0XFF4382bb),
             ),
-          ],
+      PopupMenuButton(
+        icon: Icon(
+          Icons.exit_to_app,
+          size: 30,
+          color: Color(0XFF4382bb),
+        ),
+        onSelected: (value) {
+          if (value == 'club') {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Confirmation',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF3671AA),
+                    ),
+                  ),
+                  content: Text('Are you sure you want to logout from club?',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color(0xFF3671AA),
+                    ),
+                  ),
+                  actions: [
+                    TextButton(
+                      child: Text('Cancel',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF3671AA),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    TextButton(
+                      child: Text('Confirm',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF3671AA),
+                        ),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                );
+              },
+            );
+          }
+          else if (value == 'app') {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Confirmation',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF3671AA),
+                    ),
+                  ),
+                  content: Text('Are you sure you want to logout from app?',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color(0xFF3671AA),
+                    ),
+                  ),
+                  actions: [
+                    TextButton(
+                      child: Text('Cancel',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF3671AA),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    TextButton(
+                      child: Text('Confirm',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF3671AA),
+                        ),
+                      ),
+                      onPressed: ()
+                      // العودة لصفجة تسجيل الدخول
+                      {
+                        Navigator.pushReplacementNamed(context, '/login');
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          }
+        },
+        itemBuilder: (context) => [
+          PopupMenuItem(
+            value: 'app',
+            child: Row(
+              children: [
+                Icon(
+                  Icons.logout,
+                  size: 25,
+                  color: Color(0XFF4382bb),
+                ),
+                SizedBox(width: 8),
+                Text(
+                  'Logout from App',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xFF3671AA),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          PopupMenuItem(
+            value: 'club',
+            child: Row(
+              children: [
+                Icon(
+                  Icons.meeting_room,
+                  size: 25,
+                  color: Color(0XFF4382bb),
+                ),
+                SizedBox(width: 8),
+                Text(
+                  'Logout from Club',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xFF3671AA),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      ],
         ),
       ),
       body:Container(

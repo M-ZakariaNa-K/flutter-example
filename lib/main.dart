@@ -1,3 +1,4 @@
+import 'package:example/view/attendence_view.dart';
 import 'package:example/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
       ),
-      home: HomePage(),
+      home: AttendenceView(),
     );
   }
 }
